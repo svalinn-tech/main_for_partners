@@ -135,7 +135,6 @@ input[type="checkbox"] {
   flex: 1;
 }
 
-
 .verify-card {
   border: 2px solid var(--blue) !important;
   box-shadow: 0 12px 32px rgba(41, 112, 255, 0.1) !important;
@@ -194,10 +193,6 @@ input[type="checkbox"] {
   box-shadow: 0 8px 24px rgba(41, 112, 255, 0.3);
 }
 
-
-/* MODAL */
-
-
 /* ── ONBOARDING CARD ─────────────────────────────────────── */
 #onboardingCard { border-left: 4px solid var(--blue); }
 .onboard-steps { display: flex; flex-direction: column; gap: 0; margin-bottom: 18px; }
@@ -239,7 +234,6 @@ input[type="checkbox"] {
   text-decoration: none; transition: opacity .2s;
 }
 .onboard-footer a:hover { opacity: .85; }
-
 
 /* ── TABLES ─────────────────────────────────────────────── */
 .ref-table{width:100%;border-collapse:collapse;font-size:13px}
@@ -298,7 +292,7 @@ input[type="checkbox"] {
       <div class="side-link" data-page="payouts"><span class="side-ico">📥</span><span>Выплаты</span></div>
       <div class="side-link" data-page="materials"><span class="side-ico">🗂️</span><span>Промо-материалы</span></div>
             <div class="side-link" data-page="manager"><span class="side-ico">💬</span><span>Связаться с менеджером</span></div>
-    
+
       <a href="https://t.me/+eH7ROvNjA61iNTEy" target="_blank" rel="noopener" class="side-link" style="text-decoration:none;"><span class="side-ico">👥</span><span>Чат партнеров</span></a>
     </nav>
     <div class="sidebar-footer">ID партнёра: 73257</div>
@@ -324,7 +318,6 @@ input[type="checkbox"] {
 
     <div class="content">
       <section class="page active" id="page-about">
-  <!-- Топ-баннер для верифицированного партнёра -->
   <div class="banner" style="margin-bottom:18px">
     <h2>Добро пожаловать в партнёрскую программу WinWinBot! 🎉</h2>
     <p>Вы верифицированный партнёр. Все разделы кабинета активны. Привлекайте клиентов и зарабатывайте — ваша ставка зависит от числа активных рефералов.</p>
@@ -334,7 +327,6 @@ input[type="checkbox"] {
     </div>
   </div>
 
-  <!-- KPI -->
   <div class="kpi-row grid-4" style="margin-bottom:18px">
     <div class="metric blue"><div class="metric-label">Всего заработано</div><div class="metric-value" id="mTotal">0 ₽</div></div>
     <div class="metric green"><div class="metric-label">Доступно к выводу</div><div class="metric-value" id="mBalance">0 ₽</div></div>
@@ -342,7 +334,6 @@ input[type="checkbox"] {
     <div class="metric orange"><div class="metric-label">Ваша ставка</div><div class="metric-value" id="mRate">25%</div></div>
   </div>
 
-  <!-- Рост партнёрского уровня -->
   <div class="card" style="margin-bottom:16px;border-left:4px solid var(--blue)">
     <div class="section-head" style="margin-bottom:14px">
       <div>
@@ -361,7 +352,6 @@ input[type="checkbox"] {
       <div class="progress-top"><strong>Прогресс: 9 из 11 клиентов</strong><span>Уровень 1 → Уровень 2</span></div>
       <div class="progress"><div style="width:82%;background:linear-gradient(90deg,#2970FF,#4F90FF);border-radius:999px;height:100%;transition:width .6s ease"></div></div>
     </div>
-    <!-- Уровни -->
     <div class="levels">
       <div class="level current">
         <div class="level-top">Вы здесь</div>
@@ -399,7 +389,6 @@ input[type="checkbox"] {
     </div>
   </div>
 
-  <!-- Быстрые действия + менеджер -->
   <div class="info-grid">
     <div>
       <div class="card" style="margin-bottom:14px">
@@ -431,7 +420,6 @@ input[type="checkbox"] {
         </div>
       </div>
 
-      <!-- Последние начисления -->
       <div class="card">
         <div class="section-head"><div>
           <div class="section-title">💳 Последние начисления</div>
@@ -440,7 +428,7 @@ input[type="checkbox"] {
         <button class="btn btn-ghost" style="font-size:12px;padding:5px 12px" onclick="goPage('payouts')">Все выплаты →</button>
         </div>
         <table class="ref-table">
-          <thead><tr><th>Дата регистрации</th><th>Пользователь</th><th style="cursor:pointer;user-select:none;white-space:nowrap" onclick="sortByDays(this)">Дней подписки осталось <span id="daysSortIcon">↕</span></th><th>Текущий тариф</th><th>Уровень</th></tr></thead>
+          <thead><tr><th>Дата регистрации</th><th>Пользователь</th><th style="cursor:pointer;user-select:none;white-space:nowrap" onclick="sortByDays(this)">Дней подписки осталось <span id="daysSortIcon\">↕</span></th><th>Текущий тариф</th><th>Уровень</th></tr></thead>
           <tbody>
             <tr><td>28.05.2026</td><td><div>Алексей А.</div><div class="section-sub">al***@mail.ru</div></td><td>—</td><td>—</td><td>1</td></tr>
             <tr><td>20.05.2026</td><td><div>Сервис-Плюс</div><div class="section-sub">in***@svc.ru</div></td><td>22</td><td>Business</td><td>1</td></tr>
@@ -467,10 +455,7 @@ input[type="checkbox"] {
   </div>
 </section>
 
-      
-
-      
-      <section class="page" id="page-network">
+<section class="page" id="page-network">
   <div class="card" style="margin-bottom:16px">
     <div class="section-head"><div>
       <div class="section-title">🔗 Промокоды и ссылки</div>
@@ -505,7 +490,13 @@ input[type="checkbox"] {
     </div>
 
     <div class="card" style="margin-bottom:16px">
-      <div class="section-head"><div><div class="section-title" style="font-size:16px">Мои реферальные ссылки</div></div></div>
+      <div class="section-head"><div>
+        <div class="section-title" style="font-size:16px">Мои реферальные ссылки</div>
+        <div class="section-sub">Ссылки для привлечения клиентов в WinWinBot</div>
+      </div></div>
+      <div style="background:#ECFDF5;border-radius:10px;padding:12px 16px;margin-bottom:14px;font-size:13px;color:#027A48;line-height:1.6">
+        📢 Привлекайте новых клиентов в WinWinBot — и получайте вознаграждение с каждой их оплаты.
+      </div>
       <table class="ref-table">
         <thead><tr><th>Флаг</th><th>Ссылка</th><th>Клики</th><th>Рег.</th><th>Оплат</th><th>Доход</th><th></th></tr></thead>
         <tbody>
@@ -513,6 +504,25 @@ input[type="checkbox"] {
           <tr><td>🇺🇸</td><td class="link-cell">https://my.winwinbot.com/en/p/12BU6</td><td>38</td><td>4</td><td>1</td><td>900 ₽</td><td><button class="copy-btn" onclick="copyLink(this,'https://my.winwinbot.com/en/p/12BU6')">📋</button></td></tr>
           <tr><td>🇪🇸</td><td class="link-cell">https://my.winwinbot.com/es/p/12BU6</td><td>12</td><td>1</td><td>0</td><td>0 ₽</td><td><button class="copy-btn" onclick="copyLink(this,'https://my.winwinbot.com/es/p/12BU6')">📋</button></td></tr>
           <tr><td>🇮🇳</td><td class="link-cell">https://my.winwinbot.com/hi/p/12BU6</td><td>9</td><td>0</td><td>0</td><td>0 ₽</td><td><button class="copy-btn" onclick="copyLink(this,'https://my.winwinbot.com/hi/p/12BU6')">📋</button></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <div class="section-head"><div>
+        <div class="section-title" style="font-size:16px">🤝 Ссылки для привлечения партнёров</div>
+        <div class="section-sub">Привлекайте новых партнёров в WinWinBot — и получайте <strong style="color:#2970FF">10% с каждой их оплаты</strong></div>
+      </div></div>
+      <div style="background:#EFF6FF;border-radius:10px;padding:12px 16px;margin-bottom:14px;font-size:13px;color:#1D4ED8;line-height:1.6">
+        📢 Поделитесь ссылкой с тем, кто ищет дополнительный доход. Когда они станут партнёром и начнут зарабатывать — вы будете получать <strong>10% от каждого их платежа</strong> автоматически.
+      </div>
+      <table class="ref-table">
+        <thead><tr><th>Флаг</th><th>Ссылка</th><th>Клики</th><th>Рег.</th><th>Оплат</th><th>Доход</th><th></th></tr></thead>
+        <tbody>
+          <tr><td>🇷🇺</td><td class="link-cell">https://my.winwinbot.com/ru/partner/12BU6</td><td>—</td><td>—</td><td>—</td><td>—</td><td><button class="copy-btn" onclick="copyLink(this,'https://my.winwinbot.com/ru/partner/12BU6')">📋</button></td></tr>
+          <tr><td>🇺🇸</td><td class="link-cell">https://my.winwinbot.com/en/partner/12BU6</td><td>—</td><td>—</td><td>—</td><td>—</td><td><button class="copy-btn" onclick="copyLink(this,'https://my.winwinbot.com/en/partner/12BU6')">📋</button></td></tr>
+          <tr><td>🇪🇸</td><td class="link-cell">https://my.winwinbot.com/es/partner/12BU6</td><td>—</td><td>—</td><td>—</td><td>—</td><td><button class="copy-btn" onclick="copyLink(this,'https://my.winwinbot.com/es/partner/12BU6')">📋</button></td></tr>
+          <tr><td>🇮🇳</td><td class="link-cell">https://my.winwinbot.com/hi/partner/12BU6</td><td>—</td><td>—</td><td>—</td><td>—</td><td><button class="copy-btn" onclick="copyLink(this,'https://my.winwinbot.com/hi/partner/12BU6')">📋</button></td></tr>
         </tbody>
       </table>
     </div>
@@ -586,16 +596,8 @@ input[type="checkbox"] {
     </div>
   </div>
 </section>
-      
 
-
-
-      
-
-      
-
-      <section class="page" id="page-payouts">
-  <!-- Финансовая сводка -->
+<section class="page" id="page-payouts">
   <div class="kpi-row grid-2" style="margin-bottom:16px">
     <div class="metric green">
       <div class="metric-label">Доступно к выводу</div>
@@ -610,7 +612,6 @@ input[type="checkbox"] {
     </div>
   </div>
 
-  <!-- Оплата за клиента -->
   <div class="card" style="margin-bottom:16px;border-left:4px solid #7C3AED">
     <div class="section-head" style="margin-bottom:14px"><div>
       <div class="section-title">💳 Оплатить кабинет клиента</div>
@@ -634,7 +635,6 @@ input[type="checkbox"] {
     </div>
   </div>
 
-  <!-- История транзакций -->
   <div class="card">
     <div class="section-head"><div><div class="section-title" style="font-size:16px">История транзакций</div></div></div>
     <div class="tab-row" id="payoutTabs" style="margin-bottom:16px">
@@ -669,12 +669,7 @@ input[type="checkbox"] {
   </div>
 </section>
 
-
-      
-
-      
-
-      <section class="page" id="page-materials">
+<section class="page" id="page-materials">
   <div class="card" style="border-left:4px solid var(--blue);background:linear-gradient(135deg,#F8FBFF,#EFF6FF)">
     <div style="display:flex;gap:14px;align-items:flex-start">
       <div style="font-size:32px;flex-shrink:0">🗂️</div>
@@ -693,34 +688,32 @@ input[type="checkbox"] {
   </div>
 </section>
 
-      
-
-      <section class="page" id="page-manager">
-        <div class="card manager-card">
-          <div class="section-head"><div><div class="section-title">Связаться с менеджером</div><div class="section-sub">Оперативная помощь по запуску и развитию в партнёрской программе</div></div></div>
-          <div style="display:grid;grid-template-columns:1.2fr .8fr;gap:14px">
-            <div>
-              <div style="font-size:18px;font-weight:800;margin-bottom:6px">Юрий — менеджер партнёрской программы</div>
-              <div style="font-size:14px;color:var(--gray);line-height:1.7;margin-bottom:16px">Поможет пройти верификацию, подскажет, как привлекать клиентов, разберёт кейсы и поможет выбрать следующий шаг после подключения.</div>
-              <a href="https://t.me/partner_winwinbot" target="_blank" rel="noopener" class="btn btn-primary" style="text-decoration:none">💬 Написать в Telegram</a>
-            </div>
-            <div class="card" style="padding:16px">
-              <div class="section-title" style="font-size:16px">Когда писать</div>
-              <div style="display:flex;flex-direction:column;gap:10px;margin-top:10px;font-size:13px;color:#344054">
-                <div>• Не проходит верификация</div>
-                <div>• Нужна помощь с промокодами</div>
-                <div>• Хотите совместный эфир</div>
-                <div>• Нужны промо-материалы и кейсы</div>
-                <div>• По любым вопросам, связанным с партнёрской программой</div>
-              </div>
-            </div>
-          </div>
+<section class="page" id="page-manager">
+  <div class="card manager-card">
+    <div class="section-head"><div><div class="section-title">Связаться с менеджером</div><div class="section-sub">Оперативная помощь по запуску и развитию в партнёрской программе</div></div></div>
+    <div style="display:grid;grid-template-columns:1.2fr .8fr;gap:14px">
+      <div>
+        <div style="font-size:18px;font-weight:800;margin-bottom:6px">Юрий — менеджер партнёрской программы</div>
+        <div style="font-size:14px;color:var(--gray);line-height:1.7;margin-bottom:16px">Поможет пройти верификацию, подскажет, как привлекать клиентов, разберёт кейсы и поможет выбрать следующий шаг после подключения.</div>
+        <a href="https://t.me/partner_winwinbot" target="_blank" rel="noopener" class="btn btn-primary" style="text-decoration:none">💬 Написать в Telegram</a>
+      </div>
+      <div class="card" style="padding:16px">
+        <div class="section-title" style="font-size:16px">Когда писать</div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:10px;font-size:13px;color:#344054">
+          <div>• Не проходит верификация</div>
+          <div>• Нужна помощь с промокодами</div>
+          <div>• Хотите совместный эфир</div>
+          <div>• Нужны промо-материалы и кейсы</div>
+          <div>• По любым вопросам, связанным с партнёрской программой</div>
         </div>
-      </section>
+      </div>
     </div>
+  </div>
+</section>
+</div>
 
-    <footer>© 2026 WinWinBot. Выплаты доступны верифицированным партнёрам: ООО, ИП, самозанятые.</footer>
-  </main>
+<footer>© 2026 WinWinBot. Выплаты доступны верифицированным партнёрам: ООО, ИП, самозанятые.</footer>
+</main>
 </div>
 
 <script>
@@ -742,7 +735,6 @@ document.querySelectorAll('.side-link').forEach(function(el){
     el.addEventListener('click', function(){ goPage(el.dataset.page); });
   }
 });
-
 
 // ── TAB SWITCHERS ────────────────────────────────────────
 function showNetTab(tab) {
@@ -872,10 +864,6 @@ function sortByDays(th) {
   rows.forEach(function(r){ tbody.appendChild(r); });
   document.getElementById('daysSortIcon').textContent = _daysSortAsc ? '↑' : '↓';
 }
-
 </script>
-
-<!-- MODAL: АНКЕТА ВЕРИФИКАЦИИ -->
-
 </body>
 </html>
