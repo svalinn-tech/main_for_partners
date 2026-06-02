@@ -308,7 +308,7 @@ input[type="checkbox"] {
     <div class="topbar">
       <div class="top-title">
         <h1>Добро пожаловать, Василий</h1>
-        <p>Ваш статус: <span id="headerStatusText" style="display:inline-flex;align-items:center;gap:6px;background:#FFF7ED;border:1px solid #FED7AA;color:#B54708;padding:6px 12px;border-radius:999px;font-size:13px;font-weight:700;margin-left:6px;box-shadow:0 1px 2px rgba(16,24,40,.04);">🕐 Заявка на рассмотрении</span></p>
+        <p>Ваш статус: <span id="headerStatusText" style="display:inline-flex;align-items:center;gap:6px;background:#ECFDF3;border:1px solid #A7F3D0;color:#027A48;padding:6px 12px;border-radius:999px;font-size:13px;font-weight:700;margin-left:6px;box-shadow:0 1px 2px rgba(16,24,40,.04);">✅ Верифицированный партнёр</span></p>
       </div>
       <div class="top-user">
         <div class="user-pill">
@@ -317,7 +317,7 @@ input[type="checkbox"] {
             <div style="font-size:14px;font-weight:700">Василий</div>
             <div style="font-size:12px;color:var(--gray)">Партнёр WinWinBot</div>
           </div>
-          <div class="level-badge" id="headerLevelBadge">На проверке</div>
+          <div class="level-badge" id="headerLevelBadge" style="background:#ECFDF3;color:#027A48;border:1px solid #A7F3D0">Уровень 1 · 25%</div>
         </div>
       </div>
     </div>
@@ -329,16 +329,16 @@ input[type="checkbox"] {
     <h2>Добро пожаловать в партнёрскую программу WinWinBot! 🎉</h2>
     <p>Вы верифицированный партнёр. Все разделы кабинета активны. Привлекайте клиентов и зарабатывайте — ваша ставка зависит от числа активных рефералов.</p>
     <div class="banner-actions">
-      <button class="btn btn-white" onclick="navigator.clipboard.writeText('https://my.winwinbot.com/ru/p/12BU6');this.textContent='✓ Ссылка скопирована!';setTimeout(()=>this.textContent='🔗 Скопировать мою ссылку',2000)">🔗 Скопировать мою ссылку</button>
+      <button class="btn btn-white" onclick="goPage('network');setTimeout(function(){showNetTab('links');},50)">🚀 Начать привлекать</button>
       <button class="btn btn-ghost" onclick="goPage('network')">📊 Мои рефералы</button>
     </div>
   </div>
 
   <!-- KPI -->
   <div class="kpi-row grid-4" style="margin-bottom:18px">
-    <div class="metric blue"><div class="metric-label">Всего заработано</div><div class="metric-value" id="mTotal">48 600 ₽</div></div>
-    <div class="metric green"><div class="metric-label">Доступно к выводу</div><div class="metric-value" id="mBalance">5 100 ₽</div></div>
-    <div class="metric purple"><div class="metric-label">Активных клиентов</div><div class="metric-value" id="mRefs">29</div></div>
+    <div class="metric blue"><div class="metric-label">Всего заработано</div><div class="metric-value" id="mTotal">0 ₽</div></div>
+    <div class="metric green"><div class="metric-label">Доступно к выводу</div><div class="metric-value" id="mBalance">0 ₽</div></div>
+    <div class="metric purple"><div class="metric-label">Активных клиентов</div><div class="metric-value" id="mRefs">0</div></div>
     <div class="metric orange"><div class="metric-label">Ваша ставка</div><div class="metric-value" id="mRate">25%</div></div>
   </div>
 
@@ -355,7 +355,7 @@ input[type="checkbox"] {
       </div>
     </div>
     <div style="display:flex;gap:6px;margin-bottom:10px">
-      <div style="font-size:13px;background:#EFF6FF;color:#1D4ED8;border-radius:6px;padding:4px 10px;font-weight:600">До 30%: ещё 2 активных клиента</div>
+      <div style="font-size:13px;background:#EFF6FF;color:#1D4ED8;border-radius:6px;padding:4px 10px;font-weight:600">До следующего уровня: ещё 2 активных клиента</div>
     </div>
     <div style="margin-bottom:14px">
       <div class="progress-top"><strong>Прогресс: 9 из 11 клиентов</strong><span>Уровень 1 → Уровень 2</span></div>
@@ -408,7 +408,7 @@ input[type="checkbox"] {
           <div class="section-sub">Самые нужные инструменты</div>
         </div></div>
         <div class="quick-actions" style="grid-template-columns:repeat(2,1fr)">
-          <div class="qa" onclick="goPage('network')">
+          <div class="qa" onclick="goPage('network');setTimeout(function(){showNetTab('refs');},50)">
             <div class="qa-ico">👥</div>
             <div class="qa-title">Мои рефералы</div>
             <div class="qa-sub">Список клиентов и статистика</div>
@@ -440,11 +440,11 @@ input[type="checkbox"] {
         <button class="btn btn-ghost" style="font-size:12px;padding:5px 12px" onclick="goPage('payouts')">Все выплаты →</button>
         </div>
         <table class="ref-table">
-          <thead><tr><th>Дата</th><th>Клиент</th><th>Начислено</th><th>Статус</th></tr></thead>
+          <thead><tr><th>Дата регистрации</th><th>Пользователь</th><th style="cursor:pointer;user-select:none;white-space:nowrap" onclick="sortByDays(this)">Дней подписки осталось <span id="daysSortIcon">↕</span></th><th>Текущий тариф</th><th>Уровень</th></tr></thead>
           <tbody>
-            <tr><td>28.05.2026</td><td>Алексей А.</td><td style="color:#027A48;font-weight:700">+597 ₽</td><td><span class="badge green">Доступно</span></td></tr>
-            <tr><td>20.05.2026</td><td>Сервис-Плюс</td><td style="color:#027A48;font-weight:700">+1 497 ₽</td><td><span class="badge green">Доступно</span></td></tr>
-            <tr><td>14.05.2026</td><td>Ирина В.</td><td style="color:#F79009;font-weight:700">+297 ₽</td><td><span class="badge orange">В холде</span></td></tr>
+            <tr><td>28.05.2026</td><td><div>Алексей А.</div><div class="section-sub">al***@mail.ru</div></td><td>—</td><td>—</td><td>1</td></tr>
+            <tr><td>20.05.2026</td><td><div>Сервис-Плюс</div><div class="section-sub">in***@svc.ru</div></td><td>22</td><td>Business</td><td>1</td></tr>
+            <tr><td>14.05.2026</td><td><div>Ирина В.</div><div class="section-sub">ir***@yandex.ru</div></td><td>14</td><td>Pro</td><td>2</td></tr>
           </tbody>
         </table>
       </div>
@@ -500,7 +500,6 @@ input[type="checkbox"] {
         <div class="section-sub" style="margin-bottom:8px">Быстрые действия</div>
         <div style="display:flex;flex-direction:column;gap:8px">
           <button class="btn btn-primary" style="width:100%;justify-content:center;font-size:13px" onclick="openCreatePromo()">+ Создать именной промокод</button>
-          <button class="btn btn-ghost" style="width:100%;justify-content:center;font-size:13px" onclick="openCreateLink()">+ Создать UTM-ссылку</button>
         </div>
       </div>
     </div>
@@ -523,11 +522,11 @@ input[type="checkbox"] {
         <button class="btn btn-primary" style="font-size:12px;padding:6px 14px" onclick="openCreatePromo()">+ Создать</button>
       </div>
       <table class="ref-table">
-        <thead><tr><th>Промокод</th><th>Условие</th><th>Активаций</th><th>Оплат</th><th>Доход</th><th>Статус</th></tr></thead>
+        <thead><tr><th>Промокод</th><th>Условие</th><th>Активаций</th><th>Оплат</th><th>Доход</th></tr></thead>
         <tbody>
-          <tr><td><strong style="color:#2970FF">12BU6</strong></td><td>Скидка 10%</td><td>53</td><td>22</td><td>13 200 ₽</td><td><span class="badge green">Активен</span></td></tr>
-          <tr><td><strong style="color:#2970FF">SUMMER26</strong></td><td>Скидка 10%</td><td>7</td><td>3</td><td>1 800 ₽</td><td><span class="badge green">Активен</span></td></tr>
-          <tr><td><strong style="color:#94A3B8">PROMO23</strong></td><td>Скидка 10%</td><td>19</td><td>8</td><td>4 800 ₽</td><td><span class="badge gray">Истёк</span></td></tr>
+          <tr><td><strong style="color:#2970FF">12BU6</strong></td><td>Скидка 10%</td><td>53</td><td>22</td><td>13 200 ₽</td></tr>
+          <tr><td><strong style="color:#2970FF">SUMMER26</strong></td><td>Скидка 10%</td><td>7</td><td>3</td><td>1 800 ₽</td></tr>
+          <tr><td><strong style="color:#94A3B8">PROMO23</strong></td><td>Скидка 10%</td><td>19</td><td>8</td><td>4 800 ₽</td></tr>
         </tbody>
       </table>
     </div>
@@ -560,7 +559,7 @@ input[type="checkbox"] {
         <input type="date" class="filter-select" placeholder="Дата до">
       </div>
       <table class="ref-table">
-        <thead><tr><th>Дата регистрации</th><th>Пользователь</th><th>Дней подписки осталось</th><th>Текущий тариф</th><th>Уровень</th></tr></thead>
+        <thead><tr><th>Дата регистрации</th><th>Пользователь</th><th style="cursor:pointer;user-select:none;white-space:nowrap" onclick="sortByDays(this)">Дней подписки осталось <span id="daysSortIcon">↕</span></th><th>Текущий тариф</th><th>Уровень</th></tr></thead>
         <tbody>
           <tr><td>24.05.2026</td><td><div>Алексей</div><div class="section-sub">dj***@rambler.ru</div></td><td>—</td><td>—</td><td>1</td></tr>
           <tr><td>12.01.2026</td><td><div>Ирина</div><div class="section-sub">cb***@mail.ru</div></td><td>—</td><td>—</td><td>1</td></tr>
@@ -576,12 +575,12 @@ input[type="checkbox"] {
     <div class="card">
       <div class="section-title" style="font-size:16px;margin-bottom:16px">Воронка по промокодам</div>
       <table class="ref-table">
-        <thead><tr><th>Промокод / Ссылка</th><th>Клики</th><th>Регистрации</th><th>Оплаты</th><th>Конверсия</th><th>Доход</th></tr></thead>
+        <thead><tr><th>Промокод / Ссылка</th><th>Регистрации</th><th>Оплаты</th><th>Конверсия</th><th>Доход</th></tr></thead>
         <tbody>
-          <tr><td><strong>12BU6</strong></td><td>201</td><td>22</td><td>22</td><td style="color:#12B76A;font-weight:700">10.9%</td><td>13 200 ₽</td></tr>
-          <tr><td><strong>SUMMER26</strong></td><td>34</td><td>7</td><td>3</td><td style="color:#F79009;font-weight:700">8.8%</td><td>1 800 ₽</td></tr>
-          <tr><td>Ссылка RU</td><td>142</td><td>18</td><td>7</td><td style="color:#F79009;font-weight:700">4.9%</td><td>4 200 ₽</td></tr>
-          <tr><td>Ссылка EN</td><td>38</td><td>4</td><td>1</td><td style="color:#D92D20;font-weight:700">2.6%</td><td>900 ₽</td></tr>
+          <tr><td><strong>12BU6</strong></td><td>22</td><td>22</td><td style="color:#12B76A;font-weight:700">10.9%</td><td>13 200 ₽</td></tr>
+          <tr><td><strong>SUMMER26</strong></td><td>7</td><td>3</td><td style="color:#F79009;font-weight:700">8.8%</td><td>1 800 ₽</td></tr>
+          <tr><td>Ссылка RU</td><td>18</td><td>7</td><td style="color:#F79009;font-weight:700">4.9%</td><td>4 200 ₽</td></tr>
+          <tr><td>Ссылка EN</td><td>4</td><td>1</td><td style="color:#D92D20;font-weight:700">2.6%</td><td>900 ₽</td></tr>
         </tbody>
       </table>
     </div>
@@ -625,9 +624,10 @@ input[type="checkbox"] {
       <div class="field" style="width:140px;margin:0">
         <label style="font-size:12px;color:var(--gray);display:block;margin-bottom:4px">Тариф</label>
         <select style="width:100%;padding:9px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px">
-          <option>Базовый — 990 ₽</option>
-          <option>Pro — 1 990 ₽</option>
-          <option>Business — 4 990 ₽</option>
+          <option>Стандарт (месяц) — 4 990 ₽</option>
+          <option>Расширенный (месяц) — 9 990 ₽</option>
+          <option>Стандарт (год) — 50,898 ₽</option>
+          <option>Расширенный (год) — 101,898 ₽</option>
         </select>
       </div>
       <button class="btn btn-primary" style="padding:9px 20px">Оплатить из баланса</button>
@@ -675,84 +675,22 @@ input[type="checkbox"] {
       
 
       <section class="page" id="page-materials">
-  <div class="card" style="margin-bottom:16px">
-    <div class="section-head"><div>
-      <div class="section-title">🗂️ Промо-материалы</div>
-      <div class="section-sub">Готовые тексты, баннеры и сценарии с вашей ссылкой</div>
-    </div></div>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
-      <input type="text" placeholder="🔍 Поиск по материалам..." style="flex:1;min-width:200px;padding:9px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px">
-      <select class="filter-select"><option>Все форматы</option><option>Тексты</option><option>Баннеры</option><option>Видео</option><option>Презентации</option></select>
-      <select class="filter-select"><option>Все площадки</option><option>Telegram</option><option>ВКонтакте</option><option>Email</option><option>Сайт</option></select>
+  <div class="card" style="border-left:4px solid var(--blue);background:linear-gradient(135deg,#F8FBFF,#EFF6FF)">
+    <div style="display:flex;gap:14px;align-items:flex-start">
+      <div style="font-size:32px;flex-shrink:0">🗂️</div>
+      <div style="flex:1">
+        <div class="section-title" style="margin-bottom:6px">Промо-материалы</div>
+        <div style="font-size:14px;color:#344054;line-height:1.7;margin-bottom:16px">
+          Здесь собраны готовые материалы, которые помогут вам эффективно привлекать клиентов — баннеры, тексты и шаблоны для размещения. Мы постоянно пополняем библиотеку.<br><br>
+          <span style="color:var(--gray)">Если чего-то не хватает или вы хотите предложить идею — напишите вашему менеджеру партнёрской программы, мы всегда открыты к обратной связи.</span>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a href="https://disk.360.yandex.ru/d/JQ2XS84guNAA2A" target="_blank" rel="noopener" class="btn btn-primary" style="text-decoration:none">🗂️ Смотреть промо-материалы</a>
+          <a href="https://t.me/partner_winwinbot" target="_blank" rel="noopener" class="btn btn-ghost" style="text-decoration:none">💬 Написать менеджеру</a>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="mat-grid">
-
-    <div class="mat-card">
-      <div class="mat-icon">💬</div>
-      <div class="mat-type">Telegram • Текст</div>
-      <div class="mat-title">Анонс партнёрской скидки</div>
-      <div class="mat-preview">«Подключили WinWinBot для автоматизации — и не пожалели. По моей ссылке скидка 10% на первый месяц...»</div>
-      <div class="mat-actions">
-        <button class="btn btn-primary" style="font-size:12px;padding:6px 14px" onclick="copyMaterial(this, 'Telegram-текст с вашей ссылкой: https://my.winwinbot.com/ru/p/12BU6 (промокод 12BU6)')">📋 Скопировать с ссылкой</button>
-      </div>
-    </div>
-
-    <div class="mat-card">
-      <div class="mat-icon">📧</div>
-      <div class="mat-type">Email • Текст</div>
-      <div class="mat-title">Письмо-рекомендация</div>
-      <div class="mat-preview">«Хочу порекомендовать сервис автоматизации продаж WinWinBot. Специально для вас — промокод со скидкой...»</div>
-      <div class="mat-actions">
-        <button class="btn btn-primary" style="font-size:12px;padding:6px 14px" onclick="copyMaterial(this, 'Email-текст с вашей ссылкой: https://my.winwinbot.com/ru/p/12BU6')">📋 Скопировать с ссылкой</button>
-      </div>
-    </div>
-
-    <div class="mat-card">
-      <div class="mat-icon">🖼️</div>
-      <div class="mat-type">Баннер • 1080×1080</div>
-      <div class="mat-title">Баннер для Instagram / VK</div>
-      <div class="mat-preview">Синий квадратный баннер с логотипом WinWinBot и текстом «Автоматизируй продажи»</div>
-      <div class="mat-actions">
-        <button class="btn btn-ghost" style="font-size:12px;padding:6px 14px">⬇ Скачать PNG</button>
-        <button class="btn btn-ghost" style="font-size:12px;padding:6px 14px">⬇ Скачать JPG</button>
-      </div>
-    </div>
-
-    <div class="mat-card">
-      <div class="mat-icon">📊</div>
-      <div class="mat-type">Презентация • PDF</div>
-      <div class="mat-title">Pitch-deck для клиента</div>
-      <div class="mat-preview">10-слайдовая презентация о возможностях WinWinBot для B2B-клиентов. Актуальна на июнь 2026.</div>
-      <div class="mat-actions">
-        <button class="btn btn-ghost" style="font-size:12px;padding:6px 14px">⬇ Скачать PDF</button>
-      </div>
-    </div>
-
-    <div class="mat-card">
-      <div class="mat-icon">🎯</div>
-      <div class="mat-type">Telegram • Кейс</div>
-      <div class="mat-title">Кейс: +340% конверсий за 3 недели</div>
-      <div class="mat-preview">«Клиент из ниши e-commerce подключил WinWinBot и за 3 недели вырос в конверсии на 340%...»</div>
-      <div class="mat-actions">
-        <button class="btn btn-primary" style="font-size:12px;padding:6px 14px" onclick="copyMaterial(this, 'Кейс-текст с вашей ссылкой: https://my.winwinbot.com/ru/p/12BU6')">📋 Скопировать с ссылкой</button>
-      </div>
-    </div>
-
-    <div class="mat-card">
-      <div class="mat-icon">🎬</div>
-      <div class="mat-type">Видео • Reels / Shorts</div>
-      <div class="mat-title">30-секундный видеообзор</div>
-      <div class="mat-preview">Короткое видео с демонстрацией главных функций WinWinBot. Подходит для Reels, Shorts, TikTok.</div>
-      <div class="mat-actions">
-        <button class="btn btn-ghost" style="font-size:12px;padding:6px 14px">▶ Смотреть превью</button>
-        <button class="btn btn-ghost" style="font-size:12px;padding:6px 14px">⬇ Скачать MP4</button>
-      </div>
-    </div>
-
-  </div>
-  <div style="margin-top:12px;font-size:12px;color:var(--gray);text-align:center">⚡ При копировании текстов ваша реферальная ссылка и промокод подставляются автоматически</div>
 </section>
 
       
@@ -764,10 +702,7 @@ input[type="checkbox"] {
             <div>
               <div style="font-size:18px;font-weight:800;margin-bottom:6px">Юрий — менеджер партнёрской программы</div>
               <div style="font-size:14px;color:var(--gray);line-height:1.7;margin-bottom:16px">Поможет пройти верификацию, подскажет, как привлекать клиентов, разберёт кейсы и поможет выбрать следующий шаг после подключения.</div>
-              <div class="grid-2">
-                <a href="https://t.me/partner_winwinbot" target="_blank" rel="noopener" class="btn btn-primary" style="text-decoration:none">💬 Telegram</a>
-                <a href="https://t.me/partner_winwinbot" target="_blank" rel="noopener" class="btn btn-ghost" style="text-decoration:none">📞 Запросить звонок</a>
-              </div>
+              <a href="https://t.me/partner_winwinbot" target="_blank" rel="noopener" class="btn btn-primary" style="text-decoration:none">💬 Написать в Telegram</a>
             </div>
             <div class="card" style="padding:16px">
               <div class="section-title" style="font-size:16px">Когда писать</div>
@@ -776,6 +711,7 @@ input[type="checkbox"] {
                 <div>• Нужна помощь с промокодами</div>
                 <div>• Хотите совместный эфир</div>
                 <div>• Нужны промо-материалы и кейсы</div>
+                <div>• По любым вопросам, связанным с партнёрской программой</div>
               </div>
             </div>
           </div>
@@ -912,6 +848,30 @@ function copyMaterial(btn, text) {
   ctx.fillStyle = '#12B76A'; ctx.fillRect(W - 70, 4, 10, 10);
   ctx.fillStyle = '#64748B'; ctx.fillText('Оплаты', W - 56, 13);
 })();
+
+
+// ── SORT REFERRALS BY DAYS ───────────────────────────────
+var _daysSortAsc = null;
+function sortByDays(th) {
+  var tables = document.querySelectorAll('.ref-table');
+  var table;
+  for(var i=0;i<tables.length;i++){
+    if(tables[i].querySelector('[onclick="sortByDays(this)"]')){ table=tables[i]; break; }
+  }
+  if(!table) return;
+  var tbody = table.querySelector('tbody');
+  var rows = Array.from(tbody.querySelectorAll('tr'));
+  _daysSortAsc = !_daysSortAsc;
+  rows.sort(function(a,b){
+    var aVal = a.cells[2] ? a.cells[2].textContent.trim() : '—';
+    var bVal = b.cells[2] ? b.cells[2].textContent.trim() : '—';
+    var aNum = aVal === '—' ? -1 : parseInt(aVal);
+    var bNum = bVal === '—' ? -1 : parseInt(bVal);
+    return _daysSortAsc ? aNum - bNum : bNum - aNum;
+  });
+  rows.forEach(function(r){ tbody.appendChild(r); });
+  document.getElementById('daysSortIcon').textContent = _daysSortAsc ? '↑' : '↓';
+}
 
 </script>
 
