@@ -490,57 +490,122 @@ input[type="checkbox"] {
     </div>
 
     <div class="card" style="margin-bottom:16px">
-      <div class="section-head"><div>
-        <div class="section-title" style="font-size:16px">Мои реферальные ссылки</div>
-        <div class="section-sub">Ссылки для привлечения клиентов в WinWinBot</div>
-      </div></div>
-      <div style="background:#ECFDF5;border-radius:10px;padding:12px 16px;margin-bottom:14px;font-size:13px;color:#027A48;line-height:1.6">
-        📢 Привлекайте новых клиентов в WinWinBot — и получайте вознаграждение с каждой их оплаты.
+      <div class="section-head">
+        <div>
+          <div class="section-title" style="font-size:16px">Промокоды и ссылки</div>
+          <div class="section-sub">Используйте промокоды и ссылки для привлечения клиентов</div>
+        </div>
+        <button class="btn btn-primary" style="font-size:12px;padding:6px 14px" onclick="openCreatePromo()">+ Создать промокод</button>
       </div>
-      <table class="ref-table">
-        <thead><tr><th>Флаг</th><th>Ссылка</th><th>Клики</th><th>Рег.</th><th>Оплат</th><th>Доход</th><th></th></tr></thead>
-        <tbody>
-          <tr><td>🇷🇺</td><td class="link-cell">https://my.winwinbot.com/ru/p/12BU6</td><td>142</td><td>18</td><td>7</td><td>4 200 ₽</td><td><button class="copy-btn" onclick="copyLink(this,'https://my.winwinbot.com/ru/p/12BU6')">📋</button></td></tr>
-          <tr><td>🇺🇸</td><td class="link-cell">https://my.winwinbot.com/en/p/12BU6</td><td>38</td><td>4</td><td>1</td><td>900 ₽</td><td><button class="copy-btn" onclick="copyLink(this,'https://my.winwinbot.com/en/p/12BU6')">📋</button></td></tr>
-          <tr><td>🇪🇸</td><td class="link-cell">https://my.winwinbot.com/es/p/12BU6</td><td>12</td><td>1</td><td>0</td><td>0 ₽</td><td><button class="copy-btn" onclick="copyLink(this,'https://my.winwinbot.com/es/p/12BU6')">📋</button></td></tr>
-          <tr><td>🇮🇳</td><td class="link-cell">https://my.winwinbot.com/hi/p/12BU6</td><td>9</td><td>0</td><td>0</td><td>0 ₽</td><td><button class="copy-btn" onclick="copyLink(this,'https://my.winwinbot.com/hi/p/12BU6')">📋</button></td></tr>
-        </tbody>
-      </table>
+      <div class="table-wrap">
+        <table class="ref-table" id="promoTable">
+          <thead>
+            <tr>
+              <th>Промокод</th>
+              <th>Реф. ссылка</th>
+              <th>Создано</th>
+              <th>Продукт</th>
+              <th>Переходы</th>
+              <th>Заявки</th>
+              <th>Оплата</th>
+            </tr>
+          </thead>
+          <tbody id="promoTbody">
+            <tr>
+              <td><strong style="color:#2970FF;letter-spacing:1px;font-size:13px">K5TFX</strong></td>
+              <td>
+                <div style="display:flex;flex-direction:column;gap:4px">
+                  <button type="button" onclick="copyPromoLink(this,'https://my.winwinbot.com/ru/p/K5TFX')" style="display:flex;align-items:center;gap:5px;font-size:12px;color:#1D4ED8;font-weight:600;border:none;background:none;padding:0;cursor:pointer">
+                    <span style="opacity:.7">⧉</span> Клиентская
+                  </button>
+                  <button type="button" onclick="copyPromoLink(this,'https://my.winwinbot.com/ru/partner/K5TFX')" style="display:flex;align-items:center;gap:5px;font-size:12px;color:#1D4ED8;font-weight:600;border:none;background:none;padding:0;cursor:pointer">
+                    <span style="opacity:.7">⧉</span> Партнёрская
+                  </button>
+                </div>
+              </td>
+              <td style="color:#667085;font-size:12px">02.06.2026</td>
+              <td style="font-size:12px">Подписка WinWinBot</td>
+              <td>142</td>
+              <td>18</td>
+              <td>7</td>
+            </tr>
+            <tr>
+              <td><strong style="color:#2970FF;letter-spacing:1px;font-size:13px">SUMMER26</strong></td>
+              <td>
+                <div style="display:flex;flex-direction:column;gap:4px">
+                  <button type="button" onclick="copyPromoLink(this,'https://my.winwinbot.com/ru/p/SUMMER26')" style="display:flex;align-items:center;gap:5px;font-size:12px;color:#1D4ED8;font-weight:600;border:none;background:none;padding:0;cursor:pointer">
+                    <span style="opacity:.7">⧉</span> Клиентская
+                  </button>
+                  <button type="button" onclick="copyPromoLink(this,'https://my.winwinbot.com/ru/partner/SUMMER26')" style="display:flex;align-items:center;gap:5px;font-size:12px;color:#1D4ED8;font-weight:600;border:none;background:none;padding:0;cursor:pointer">
+                    <span style="opacity:.7">⧉</span> Партнёрская
+                  </button>
+                </div>
+              </td>
+              <td style="color:#667085;font-size:12px">01.06.2026</td>
+              <td style="font-size:12px">Подписка WinWinBot</td>
+              <td>38</td>
+              <td>4</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td><strong style="color:#2970FF;letter-spacing:1px;font-size:13px">PROMO23</strong></td>
+              <td>
+                <div style="display:flex;flex-direction:column;gap:4px">
+                  <button type="button" onclick="copyPromoLink(this,'https://my.winwinbot.com/ru/p/PROMO23')" style="display:flex;align-items:center;gap:5px;font-size:12px;color:#1D4ED8;font-weight:600;border:none;background:none;padding:0;cursor:pointer">
+                    <span style="opacity:.7">⧉</span> Клиентская
+                  </button>
+                  <button type="button" onclick="copyPromoLink(this,'https://my.winwinbot.com/ru/partner/PROMO23')" style="display:flex;align-items:center;gap:5px;font-size:12px;color:#1D4ED8;font-weight:600;border:none;background:none;padding:0;cursor:pointer">
+                    <span style="opacity:.7">⧉</span> Партнёрская
+                  </button>
+                </div>
+              </td>
+              <td style="color:#667085;font-size:12px">15.04.2026</td>
+              <td style="font-size:12px">Подписка WinWinBot</td>
+              <td>21</td>
+              <td>5</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td><strong style="color:#2970FF;letter-spacing:1px;font-size:13px">MAYAK</strong></td>
+              <td>
+                <div style="display:flex;flex-direction:column;gap:4px">
+                  <button type="button" onclick="copyPromoLink(this,'https://my.winwinbot.com/ru/p/MAYAK')" style="display:flex;align-items:center;gap:5px;font-size:12px;color:#1D4ED8;font-weight:600;border:none;background:none;padding:0;cursor:pointer">
+                    <span style="opacity:.7">⧉</span> Клиентская
+                  </button>
+                  <button type="button" onclick="copyPromoLink(this,'https://my.winwinbot.com/ru/partner/MAYAK')" style="display:flex;align-items:center;gap:5px;font-size:12px;color:#1D4ED8;font-weight:600;border:none;background:none;padding:0;cursor:pointer">
+                    <span style="opacity:.7">⧉</span> Партнёрская
+                  </button>
+                </div>
+              </td>
+              <td style="color:#667085;font-size:12px">10.03.2026</td>
+              <td style="font-size:12px">Подписка WinWinBot</td>
+              <td>9</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td><strong style="color:#2970FF;letter-spacing:1px;font-size:13px">VIP2026</strong></td>
+              <td>
+                <div style="display:flex;flex-direction:column;gap:4px">
+                  <button type="button" onclick="copyPromoLink(this,'https://my.winwinbot.com/ru/p/VIP2026')" style="display:flex;align-items:center;gap:5px;font-size:12px;color:#1D4ED8;font-weight:600;border:none;background:none;padding:0;cursor:pointer">
+                    <span style="opacity:.7">⧉</span> Клиентская
+                  </button>
+                  <button type="button" onclick="copyPromoLink(this,'https://my.winwinbot.com/ru/partner/VIP2026')" style="display:flex;align-items:center;gap:5px;font-size:12px;color:#1D4ED8;font-weight:600;border:none;background:none;padding:0;cursor:pointer">
+                    <span style="opacity:.7">⧉</span> Партнёрская
+                  </button>
+                </div>
+              </td>
+              <td style="color:#667085;font-size:12px">01.01.2026</td>
+              <td style="font-size:12px">Подписка WinWinBot</td>
+              <td>57</td>
+              <td>12</td>
+              <td>5</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
-    <div class="card" style="margin-bottom:16px">
-      <div class="section-head"><div>
-        <div class="section-title" style="font-size:16px">🤝 Ссылки для привлечения партнёров</div>
-        <div class="section-sub">Привлекайте новых партнёров в WinWinBot — и получайте <strong style="color:#2970FF">10% с каждой их оплаты</strong></div>
-      </div></div>
-      <div style="background:#EFF6FF;border-radius:10px;padding:12px 16px;margin-bottom:14px;font-size:13px;color:#1D4ED8;line-height:1.6">
-        📢 Поделитесь ссылкой с тем, кто ищет дополнительный доход. Когда они станут партнёром и начнут зарабатывать — вы будете получать <strong>10% от каждого их платежа</strong> автоматически.
-      </div>
-      <table class="ref-table">
-        <thead><tr><th>Флаг</th><th>Ссылка</th><th>Клики</th><th>Рег.</th><th>Оплат</th><th>Доход</th><th></th></tr></thead>
-        <tbody>
-          <tr><td>🇷🇺</td><td class="link-cell">https://my.winwinbot.com/ru/partner/12BU6</td><td>—</td><td>—</td><td>—</td><td>—</td><td><button class="copy-btn" onclick="copyLink(this,'https://my.winwinbot.com/ru/partner/12BU6')">📋</button></td></tr>
-          <tr><td>🇺🇸</td><td class="link-cell">https://my.winwinbot.com/en/partner/12BU6</td><td>—</td><td>—</td><td>—</td><td>—</td><td><button class="copy-btn" onclick="copyLink(this,'https://my.winwinbot.com/en/partner/12BU6')">📋</button></td></tr>
-          <tr><td>🇪🇸</td><td class="link-cell">https://my.winwinbot.com/es/partner/12BU6</td><td>—</td><td>—</td><td>—</td><td>—</td><td><button class="copy-btn" onclick="copyLink(this,'https://my.winwinbot.com/es/partner/12BU6')">📋</button></td></tr>
-          <tr><td>🇮🇳</td><td class="link-cell">https://my.winwinbot.com/hi/partner/12BU6</td><td>—</td><td>—</td><td>—</td><td>—</td><td><button class="copy-btn" onclick="copyLink(this,'https://my.winwinbot.com/hi/partner/12BU6')">📋</button></td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="card">
-      <div class="section-head"><div><div class="section-title" style="font-size:16px">Мои промокоды</div></div>
-        <button class="btn btn-primary" style="font-size:12px;padding:6px 14px" onclick="openCreatePromo()">+ Создать</button>
-      </div>
-      <table class="ref-table">
-        <thead><tr><th>Промокод</th><th>Условие</th><th>Активаций</th><th>Оплат</th><th>Доход</th></tr></thead>
-        <tbody>
-          <tr><td><strong style="color:#2970FF">12BU6</strong></td><td>Скидка 10%</td><td>53</td><td>22</td><td>13 200 ₽</td></tr>
-          <tr><td><strong style="color:#2970FF">SUMMER26</strong></td><td>Скидка 10%</td><td>7</td><td>3</td><td>1 800 ₽</td></tr>
-          <tr><td><strong style="color:#94A3B8">PROMO23</strong></td><td>Скидка 10%</td><td>19</td><td>8</td><td>4 800 ₽</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
 
   <!-- TAB: REFERRALS -->
   <div id="netRefs" style="display:none">
@@ -863,6 +928,16 @@ function sortByDays(th) {
   });
   rows.forEach(function(r){ tbody.appendChild(r); });
   document.getElementById('daysSortIcon').textContent = _daysSortAsc ? '↑' : '↓';
+}
+</script>
+
+<script>
+function copyPromoLink(btn, url) {
+  navigator.clipboard.writeText(url);
+  var prev = btn.innerHTML;
+  btn.style.color = '#027A48';
+  btn.innerHTML = '<span style="opacity:.7">✓</span> Скопировано';
+  setTimeout(function() { btn.innerHTML = prev; btn.style.color = ''; }, 1500);
 }
 </script>
 </body>
