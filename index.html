@@ -274,9 +274,54 @@ input[type="checkbox"] {
 .mat-preview{font-size:12px;color:#64748B;line-height:1.5;flex:1}
 .mat-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
 
+
+/* ── TOP HEADER ── */
+.top-header{background:#0F172A;color:#fff;display:flex;align-items:center;padding:0 24px;height:52px;position:sticky;top:0;z-index:200;border-bottom:1px solid rgba(255,255,255,.08);}
+.th-brand{display:flex;align-items:center;gap:9px;font-size:15px;font-weight:800;color:#fff;text-decoration:none;margin-right:28px;flex-shrink:0;}
+.th-brand-ico{width:28px;height:28px;background:#1D4ED8;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;}
+.th-nav{display:flex;align-items:center;gap:2px;flex:1;}
+.th-nav a{display:flex;align-items:center;gap:6px;padding:7px 13px;border-radius:8px;color:rgba(255,255,255,.7);font-size:13px;font-weight:500;text-decoration:none;transition:.15s;}
+.th-nav a:hover{background:rgba(255,255,255,.07);color:#fff;}
+.th-user-wrap{position:relative;margin-left:auto;}
+.th-pill{display:flex;align-items:center;gap:9px;background:transparent;border:1.5px solid rgba(255,255,255,.22);border-radius:10px;padding:6px 11px 6px 7px;cursor:pointer;color:#fff;outline:none;font-family:inherit;transition:.15s;}
+.th-pill:hover{border-color:rgba(255,255,255,.45);}
+.th-dropdown{display:none;position:absolute;top:calc(100% + 8px);right:0;min-width:215px;background:#fff;border:1px solid #E4E7EC;border-radius:12px;box-shadow:0 8px 32px rgba(16,24,40,.16);padding:6px;z-index:9999;}
+.th-dropdown a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;font-size:14px;font-weight:500;color:#101828;text-decoration:none;}
+.th-dropdown a:hover{background:#F5F7FF;}
+.th-dropdown a.logout{color:#D92D20;}
+.th-dropdown a.logout:hover{background:#FEF3F2;}
+.th-sep{height:1px;background:#F1F5F9;margin:4px 0;}
 </style>
 </head>
 <body>
+<header class="top-header">
+  <a class="th-brand" href="#">
+    <div class="th-brand-ico">WWB</div>
+    WinWinBot
+  </a>
+  <nav class="th-nav">
+    <a href="#">🤖 Мои боты</a>
+    <a href="#">📖 База знаний</a>
+    <a href="#">💬 Чат поддержки</a>
+  </nav>
+  <div class="th-user-wrap">
+    <button class="th-pill" id="thPill" type="button">
+      <div style="width:30px;height:30px;border-radius:50%;background:#1D4ED8;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;">В</div>
+      <div style="text-align:left;">
+        <div style="font-size:13px;font-weight:700;line-height:1.2;">Василий</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.6);line-height:1.2;">Партнёр WinWinBot</div>
+      </div>
+      <span id="thChevron" style="font-size:10px;color:rgba(255,255,255,.55);margin-left:2px;">▾</span>
+    </button>
+    <div class="th-dropdown" id="thDropdown">
+      <a href="#">💳 Оплатить</a>
+      <a href="#">⚙️ Настройки</a>
+      <a href="#">⭐ Партнёрская программа</a>
+      <div class="th-sep"></div>
+      <a href="#" class="logout">→ Выход</a>
+    </div>
+  </div>
+</header>
 <div class="app">
   <aside class="sidebar">
     <div class="logo">
@@ -607,59 +652,7 @@ input[type="checkbox"] {
     </div>
 
 
-  <!-- TAB: REFERRALS -->
-  <div id="netRefs" style="display:none">
-    <div class="kpi-row grid-4" style="margin-bottom:16px">
-      <div class="metric blue"><div class="metric-label">Всего рефералов</div><div class="metric-value">57</div></div>
-      <div class="metric green"><div class="metric-label">Активных подписок</div><div class="metric-value">29</div></div>
-      <div class="metric purple"><div class="metric-label">Конверсия в оплату</div><div class="metric-value">38%</div></div>
-      <div class="metric orange"><div class="metric-label">Ср. доход с реферала</div><div class="metric-value">856 ₽</div></div>
-    </div>
 
-    <div class="card" style="margin-bottom:16px">
-      <div class="section-title" style="font-size:15px;margin-bottom:14px">График привлечения рефералов</div>
-      <canvas id="refChart" height="80"></canvas>
-    </div>
-
-    <div class="card">
-      <div class="section-head">
-        <div><div class="section-title" style="font-size:16px">Список рефералов</div><div class="section-sub">Всего: 57</div></div>
-      </div>
-      <!-- Filters -->
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px">
-        <select class="filter-select"><option>Все уровни</option><option>Уровень 1</option><option>Уровень 2</option></select>
-        <select class="filter-select"><option>Все статусы</option><option>Активна</option><option>Истекла</option><option>Триал</option></select>
-        <select class="filter-select"><option>Все источники</option><option>Промокод 12BU6</option><option>Ссылка RU</option><option>Ссылка EN</option></select>
-        <input type="date" class="filter-select" placeholder="Дата от">
-        <input type="date" class="filter-select" placeholder="Дата до">
-      </div>
-      <table class="ref-table">
-        <thead><tr><th>Дата регистрации</th><th>Пользователь</th><th style="cursor:pointer;user-select:none;white-space:nowrap" onclick="sortByDays(this)">Дней подписки осталось <span id="daysSortIcon">↕</span></th><th>Текущий тариф</th><th>Уровень</th></tr></thead>
-        <tbody>
-          <tr><td>24.05.2026</td><td><div>Алексей</div><div class="section-sub">dj***@rambler.ru</div></td><td>—</td><td>—</td><td>1</td></tr>
-          <tr><td>12.01.2026</td><td><div>Ирина</div><div class="section-sub">cb***@mail.ru</div></td><td>—</td><td>—</td><td>1</td></tr>
-          <tr><td>02.11.2025</td><td><div>Михаил</div><div class="section-sub">mi***@yandex.ru</div></td><td>14</td><td>Pro</td><td>2</td></tr>
-          <tr><td>18.09.2025</td><td><div>Сервис-Плюс</div><div class="section-sub">in***@svc.ru</div></td><td>22</td><td>Business</td><td>1</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- TAB: STATS -->
-  <div id="netStats" style="display:none">
-    <div class="card">
-      <div class="section-title" style="font-size:16px;margin-bottom:16px">Воронка по промокодам</div>
-      <table class="ref-table">
-        <thead><tr><th>Промокод / Ссылка</th><th>Регистрации</th><th>Оплаты</th><th>Конверсия</th><th>Доход</th></tr></thead>
-        <tbody>
-          <tr><td><strong>12BU6</strong></td><td>22</td><td>22</td><td style="color:#12B76A;font-weight:700">10.9%</td><td>13 200 ₽</td></tr>
-          <tr><td><strong>SUMMER26</strong></td><td>7</td><td>3</td><td style="color:#F79009;font-weight:700">8.8%</td><td>1 800 ₽</td></tr>
-          <tr><td>Ссылка RU</td><td>18</td><td>7</td><td style="color:#F79009;font-weight:700">4.9%</td><td>4 200 ₽</td></tr>
-          <tr><td>Ссылка EN</td><td>4</td><td>1</td><td style="color:#D92D20;font-weight:700">2.6%</td><td>900 ₽</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
 </section>
 
 <section class="page" id="page-payouts">
@@ -782,7 +775,7 @@ input[type="checkbox"] {
 </div>
 
 <script>
-var isVerified = false;
+var isVerified = true;
 var adjectives = ['WIN','BOT','PRO','TOP','VIP','MAX','ACE','FLY','HIT','ROI'];
 
 function goPage(page){
@@ -809,6 +802,7 @@ function showNetTab(tab) {
   document.querySelectorAll('#networkTabs .tab-btn').forEach(function(b, i){
     b.classList.toggle('active', ['links','refs','stats'][i] === tab);
   });
+  if(tab === 'refs') setTimeout(drawRefChart, 50);
 }
 
 function showPayTab(tab) {
@@ -835,9 +829,11 @@ function copyMaterial(btn, text) {
 }
 
 // ── SIMPLE REFERRAL CHART ────────────────────────────────
-(function(){
+function drawRefChart(){
   var canvas = document.getElementById('refChart');
   if(!canvas) return;
+  if(canvas._drawn) return;
+  canvas._drawn = true;
   var ctx = canvas.getContext('2d');
   var months = ['Дек','Янв','Фев','Мар','Апр','Май'];
   var regs =   [3, 8, 12, 7, 14, 13];
@@ -904,7 +900,7 @@ function copyMaterial(btn, text) {
   ctx.fillStyle = '#64748B'; ctx.fillText('Регистрации', W - 146, 13);
   ctx.fillStyle = '#12B76A'; ctx.fillRect(W - 70, 4, 10, 10);
   ctx.fillStyle = '#64748B'; ctx.fillText('Оплаты', W - 56, 13);
-})();
+}
 
 
 // ── SORT REFERRALS BY DAYS ───────────────────────────────
@@ -939,6 +935,24 @@ function copyPromoLink(btn, url) {
   btn.innerHTML = '<span style="opacity:.7">✓</span> Скопировано';
   setTimeout(function() { btn.innerHTML = prev; btn.style.color = ''; }, 1500);
 }
+</script>
+<script>
+(function(){
+  var pill = document.getElementById('thPill');
+  var drop = document.getElementById('thDropdown');
+  var chev = document.getElementById('thChevron');
+  if(!pill) return;
+  pill.addEventListener('click', function(e){
+    e.stopPropagation();
+    var isOpen = drop.style.display === 'block';
+    drop.style.display = isOpen ? 'none' : 'block';
+    chev.textContent = isOpen ? '▾' : '▴';
+  });
+  document.addEventListener('click', function(){
+    drop.style.display = 'none';
+    chev.textContent = '▾';
+  });
+})();
 </script>
 </body>
 </html>
